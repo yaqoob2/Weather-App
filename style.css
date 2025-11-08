@@ -1,0 +1,210 @@
+/* ===== Light Sky Nature Theme ===== */
+:root {
+  --text: #1a1a1a;
+  --muted: #6d6d6d;
+  --card-bg: rgba(255, 255, 255, 0.55);
+  --card-border: rgba(255, 255, 255, 0.35);
+  --accent: #1ea0ff;
+  --sky1: #bde5ff;
+  --sky2: #e9f7ff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", system-ui, Arial, sans-serif;
+  color: var(--text);
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: linear-gradient(to bottom, var(--sky1), var(--sky2));
+  overflow-x: hidden;
+}
+
+/* Soft white fluffy clouds */
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  background: rgba(255, 255, 255, 0.55);
+  width: 600px;
+  height: 250px;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.5;
+  z-index: 0;
+}
+
+body::before {
+  top: -60px;
+  left: -120px;
+  transform: rotate(-10deg);
+}
+
+body::after {
+  bottom: -50px;
+  right: -100px;
+}
+
+/* Main card */
+.card {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 700px;
+  padding: 28px;
+  border-radius: 20px;
+
+  background: var(--card-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+
+  border: 1px solid var(--card-border);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+}
+
+h1 {
+  margin: 0 0 18px;
+  font-size: 30px;
+  text-align: center;
+  color: #0d78c9;
+}
+
+/* Form */
+form {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+input {
+  flex: 1;
+  padding: 12px 16px;
+  font-size: 16px;
+  border-radius: 12px;
+  border: 1px solid #c9e6ff;
+  background: white;
+  color: #222;
+  outline: none;
+  transition: 0.2s ease;
+}
+
+input:focus {
+  border-color: #78c8ff;
+  box-shadow: 0 0 0 5px rgba(124, 194, 255, 0.25);
+}
+
+button {
+  padding: 12px 16px;
+  border: 0;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  background: linear-gradient(90deg, #62c7ff, #1ea0ff);
+  color: #fff;
+  transition: 0.2s ease;
+}
+
+button:hover {
+  filter: brightness(1.05);
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+.muted {
+  color: var(--muted);
+  min-height: 24px;
+  text-align: center;
+}
+
+/* Results */
+.hidden {
+  display: none;
+}
+
+#result {
+  animation: fadeIn 0.4s ease both;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.big {
+  font-size: 18px;
+  margin: 10px 0 16px;
+  color: #007acc;
+  text-align: center;
+}
+
+/* Current weather values */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.kv {
+  padding: 14px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  text-align: center;
+}
+
+.kv span {
+  display: block;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.kv strong {
+  font-size: 20px;
+  color: #004d73;
+}
+
+/* Next days */
+.days {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+}
+
+.day {
+  padding: 14px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  transition: 0.2s ease;
+}
+
+.day:hover {
+  transform: translateY(-3px);
+}
+
+.day .date {
+  color: #666;
+  font-size: 13px;
+}
+
+.day .range {
+  margin-top: 6px;
+  font-weight: 600;
+  color: #003a5c;
+}
+
+/* Mobile */
+@media (max-width: 500px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

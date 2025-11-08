@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mini Weather App (Fetch API)</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <main class="card">
+        <h1>Mini Weather App</h1>
+
+        <form id="search-form" autocomplete="off">
+            <input id="city" type="text" placeholder="Type a city (e.g., Manama)" required />
+            <button type="submit">Get Weather</button>
+        </form>
+
+        <div id="status" class="muted"></div>
+
+        <section id="result" class="hidden">
+            <h2 id="place"></h2>
+            <p id="summary" class="big"></p>
+
+            <div class="grid">
+                <div class="kv"><span>Temp</span><strong id="temp"></strong></div>
+                <div class="kv"><span>Wind</span><strong id="wind"></strong></div>
+                <div class="kv"><span>Humidity</span><strong id="humidity"></strong></div>
+            </div>
+
+            <h3>Next 5 days</h3>
+            <div id="daily" class="days"></div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
